@@ -1,4 +1,4 @@
-SELECT 
+ SELECT 
     c.CustomerID AS CustomerID,
     c.CustomerName AS CustomerName,
     COUNT(od.OrderDetailID) AS OrderCount,
