@@ -1,0 +1,74 @@
+		Поле Title			
+1	Title	Валидация поля title (3 символа)	Ответ 201 Created	Ответ 201 Created	PASSED
+2	Title	Валидация поля title (50 символов)	Ответ 201 Created	Ответ 201 Created	PASSED
+3	Title	Валидация поля title (51 символов)	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+4	Title	Валидация поля title (2 символа)	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+5	Title	Валидация пустого поля title	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+6	Title	Отсутствие поля title	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+		Поле Body			
+1	Body	Проверка длины body (до 200 символов)	Ответ 201 Created	Ответ 201 Created	PASSED
+2	Body	Проверка длины body (200 символов)	Ответ 201 Created	Ответ 201 Created	PASSED
+3	Body	Проверка длины body (201 символ)	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+4	Body	Тело body отсутствует	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+5	Body	Пустое поле body	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+		Поле Type			
+1	Type	Допустимые значения type (1)	Ответ 201 Created	Ответ 201 Created	PASSED
+2	Type	Допустимые значения type (2)	Ответ 201 Created	Ответ 201 Created	PASSED
+3	Type	Допустимые значения type (3)	Ответ 201 Created	Ответ 201 Created	PASSED
+4	Type	Недопустимые значения для type 0	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+5	Type	Недопустимые значения для type 4	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+6	Type	Недопустимые значения для type -1	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+7	Type	Недопустимые значения для type с точкой(2.1)	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+8	Type	Недопустимые значения для type спецсимволы(!"№;%:)	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+9	Type	Поле type отсутствует 	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+10	Type	Пустое поле type	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+		Поле ID			
+1	ID	Отсутствие поля id	Ответ 201 Created	Ответ 201 Created , поле id 101	PASSED
+2	ID	Проверка уникальности поля id 	Ответ 201 Created, id статичное	Ответ 201 Created	PASSED
+		Поле DateCreated			
+1	DateCreated	Проверка корректного формата dateCreated (2021-07-04 14:01:13)	Ответ 201 Created	Ответ 201 Created	PASSED
+2	DateCreated	Некорректный формат dateCreated  (14:01:13 2021-07-04 )	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+3	DateCreated	Некорректный формат dateCreated (2021-07-04 :01:13) не указаны часы	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+4	DateCreated	Некорректный формат dateCreated  (14:01:13 2021--04 ) не указаны минуты	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+5	DateCreated	Некорректный формат dateCreated  (2021-07-04 14:01:) не указаны секунды	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+6	DateCreated	Проверка некорректного формата dateCreated (-10-04 14:01:13)не указан год	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+7	DateCreated	Некорректный формат dateCreated (2024--04 14:01:13) не указан месяц	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+8	DateCreated	Некорректный формат dateCreated (2024-07- 14:01:13) не указан день	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+9	DateCreated	Пустое поле dateCreated	Ответ 400 Bad Request, сообщение об ошибке	Ответ 201 Created	FAILED
+		Структура запроса JSON			
+1	JSON	Пустое тело запроса	Ответ 400 Bad Request, сообщение о том, что тело запроса обязательно	Ответ 201 Created	FAILED
+2	JSON	Без поле body	Ответ 400 Bad Request, сообщение о том, что тело запроса обязательно	Ответ 201 Created	FAILED
+3	JSON	Без поле Title	Ответ 400 Bad Request, сообщение о том, что тело запроса обязательно	Ответ 201 Created	FAILED
+4	JSON	Без поле Type	Ответ 400 Bad Request, сообщение о том, что тело запроса обязательно	Ответ 201 Created	FAILED
+5	JSON	Отправка запроса form-data (пустые значения)	Ответ 400 Bad Request, сообщение о синтаксической ошибке	Ответ 201 Created	FAILED
+6	JSON	Нарушение структуры JSON (два title в запросе)	Ответ 400 Bad Request, сообщение о синтаксической ошибке	Ответ 201 Created	FAILED
+7	JSON	Нарушение структуры JSON (ошибки синтаксиса)	Ответ 400 Bad Request, сообщение о синтаксической ошибке	Ответ 201 Created	FAILED
+		Xss в теле запроса			
+1	Security	XSS-инъекция в поле body ( <script>alert('XSS')</script>)	Ответ 400 Bad Request,недопустимые данные	Ответ 201 Created	FAILED
+2	Security	XSS-инъекция в поле title ( <script>alert('XSS')</script>)	Ответ 400 Bad Request,недопустимые данные	Ответ 201 Created	FAILED
+3	Security	XSS-инъекция в поле type( <script>alert('XSS')</script>)	Ответ 400 Bad Request,недопустимые данные	Ответ 201 Created	FAILED
+4	Security	SQL-инъекция в поле body (1 OR 1=1)	Ответ 400 Bad Request,недопустимые данные	Ответ 201 Created	FAILED
+		Поле Status 			
+1	Status	Статус = 1 (успешно опубликован)	Ответ 201 Created, статус = 1	Ответ 201 Created	PASSED
+2	Status	Статус = 2 (в ожидании проверки)	Ответ 201 Created, статус = 2	Ответ 201 Created	PASSED
+3	Status	Статус = 3 Недопустимые значения	Ответ 400 Bad Request,недопустимые данные	Ответ 201 Created	FAILED
+4	Status	Статус = -1 Недопустимые значения	Ответ 400 Bad Request,недопустимые данные	Ответ 201 Created	FAILED
+5	Status	Статус = Спецсимволы("№!%) Недопустимые значения	Ответ 400 Bad Request,недопустимые данные	Ответ 201 Created	FAILED
+6	Status	Статус =  Недопустимые значения латиница (dsa)	Ответ 400 Bad Request,недопустимые данные	Ответ 201 Created	FAILED
+7	Status	Статус = 0 Недопустимые значения	Ответ 400 Bad Request,недопустимые данные	Ответ 201 Created	FAILED
+
+
+
+1.	Title	Поле title принимает значение, превышающее допустимую длину	Отправить запрос с title длиной 51 символ.	Ответ 400 с ошибкой	Ответ 201 Created
+2.	Title	Поле title принимает значение, меньшее минимальной длины	Отправить запрос с полем title длиной 2 символа	Ответ 400 с ошибкой	Ответ 201 Created
+3.	Title	Пустое поле title не отклоняется	Отправить запрос с полем title пустой	Ответ 400 с ошибкой	Ответ 201 Created
+4.	Title	Отсутствие поля title не вызывает ошибку	Отправить запрос без поля title.	Ответ 400 с ошибкой	Ответ 201 Created
+5.	Body	Поле body принимает значение, превышающее допустимую длину.	Отправить запрос с body превышающий допустимую длину 200 символов	Ответ 400 с ошибкой	Ответ 201 Created
+6.	Body	Отсутствие поля body не вызывает ошибку.	Отправить запрос без поля body.	Ответ 400 с ошибкой	Ответ 201 Created
+7.	Body	Пустое поле body не отклоняется.	Отправить запрос с пустым полем body.	Ответ 400 с ошибкой	Ответ 201 Created
+8.	Type	Недопустимое значение для type не отклоняется.	Отправить запрос с type = 0.	Ответ 400 с ошибкой	Ответ 201 Created
+9.	Type	Недопустимое значение для type не отклоняется.	Недопустимые значения для type с точкой(2.1)	Ответ 400 с ошибкой	Ответ 201 Created
+10.	Type	Недопустимое значение для type не отклоняется.	Недопустимые значения для type спецсимволы(!"№;%:)	Ответ 400 с ошибкой	Ответ 201 Created
+11.	Type	Недопустимое значение для type не отклоняется.	Недопустимые значения для type -1	Ответ 400 с ошибкой	Ответ 201 Created
+12.	Type	Пустое поле type не отклоняется.	Отправить запрос с пустым полем Type	Ответ 400 с ошибкой	Ответ 201 Created
+13.	Type	Отсутствие поля Type не вызывает ошибку	Отправить запрос с пустым полем Type.	Ответ 400 с ошибкой	Ответ 201 Created
